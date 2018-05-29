@@ -63,7 +63,7 @@ with open(t+'D.txt', 'r') as f:
 
 player_teams = {}
 for player in os.listdir(d):
-    if player[0] != '.':
+    if len(player) > 3 and player[-3:] == 'txt':
         name = player[:player.index('.txt')]
         with open(d+player, 'r') as teampicks:
             # print('********', name.title(), '********')
