@@ -1,0 +1,6 @@
+Too many teams from Group A for Joe
+Too many teams from Group C for Joe
+The people below have too many teams. Please fix it and try again.
+***
+Joe
+***

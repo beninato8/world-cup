@@ -1,0 +1,7 @@
+A = 1
+B = 2
+C = 3
+D = 5
+
+POINTS_FOR_WIN = 3
+POINTS_FOR_TIE = 1

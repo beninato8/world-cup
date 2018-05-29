@@ -1,0 +1,55 @@
+Alright Nick, sorry it took so long, have been busy, but here is the run down for what we need.
+Basically what we need is a program that can automate everything. Doesn’t matter whether it is on the computer or an app.
+
+So the way the game works is that an indefinite amount of people can join and pick certain teams. The teams are organized into certain groups:
+
+Group A (pick 1 team):
+Germany
+Brazil
+Belgium
+Portugal
+Argentina
+Switzerland
+France
+
+Group B (2 picks):
+Spain
+Poland
+Peru
+Denmark
+England
+Tunisia
+
+Group C (3 teams):
+Mexico
+Columbia
+Uruguay
+Croatia
+Iceland
+Sweden
+Costa Rica
+Senegal
+
+Group D (5 picks):
+Serbia
+Iran
+Australia
+Morocco
+Egypt
+Nigeria
+Panama
+Japan
+South Korea
+Russia
+Saudi Arabia
+
+Each person gets a certain number of teams from each group as listed next to the groups.
+Then based on the teams they pick, they get points for how they do. Every time one of their teams wins, they get 3 points. If they tie, 1 point, and if lose, no points. Whoever has the most points at the end of the tournament wins.
+To have a winner in case of a tie, we need the total goals that someone’s teams have scored, the total goals someone’s teams have let in, and the total goal differential, which is just goals for minus goals against. 
+
+Its a pretty simple program I think. All the team selecting will be done on paper. The program just needs to be capable of having my dad enter each person and their teams into the program, then after every game he can add in how a team did, how many goals they scored and let in and have that change the scores for everyone across the board. It was annoying for my dad last time because he had a spread sheet and manually had to make all the edits. 
+One more thing, it is possible that some people have less than the maximum amount of teams. Because to pick teams, my dad is going to put up the flags for the teams and everyone has to guess the team. If you guess the team wrong, you don’t get that team. 
+
+I can give you more details if you need it, or you can look up stuff on the Fifa website.
+
+Thanks, we just need it ready before the first game, which I believe is in a month or two. 

@@ -1,0 +1,32 @@
+EG    Egypt
+MA    Morocco
+NG    Nigeria
+SN    Senegal
+TN    Tunisia
+AU    Australia
+IR    Iran
+JP    Japan
+KR    South Korea
+SA    Saudi Arabia
+BE    Belgium
+HR    Croatia
+DK    Denmark
+GB    England
+FR    France
+DE    Germany
+IS    Iceland
+PL    Poland
+PT    Portugal
+RU    Russia
+RS    Serbia
+ES    Spain
+SE    Sweden
+CH    Switzerland
+CR    Costa Rica
+MX    Mexico
+PA    Panama
+AR    Argentina
+BR    Brazil
+CO    Colombia
+PE    Peru
+UY    Uruguay

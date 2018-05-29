@@ -1,0 +1,4 @@
+bob     0
+bill    0
+joe     0
+jack    0
