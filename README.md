@@ -1,5 +1,23 @@
 # World Cup Scorekeeping
 
+## Luca instructions
+
+ 1) Open Terminal
+
+ 2) Type `cd ` and then literally hit the spacebar to type space
+
+ 3) Drag the `world-cup` folder from your desktop into terminal
+
+ 4) Hit return
+
+ 5) Type `python3 scoring.py`
+
+ 6) Hit return
+
+ 7) Look in the results folder for your results
+
+ 8) Repeat steps 5 - 8 as long as the same terminal window is open. If you quit terminal or close the window start over from step 1.
+
 ### Players
 
 The teams that players pick are stored in text files in the [players](players) folder. Each file corresponds to a single player. For example, if my name was Bob, and I picked Mexico, Columbia, and South Korea, my file (`bob.txt`) would look like this:
@@ -28,4 +46,3 @@ To add the results of a game, you need to update the [team-scores.txt](team-scor
 To run the program, just double-click the [run me app](run-me.app). Alternatively, if that doesn't work, download python3 [here](https://www.python.org/downloads/), open the [open-terminal app](open-terminal.app), and run `python3 scoring.py`. Last resort just ask Will.
 
 Results will show up in the [results](results) folder. Any errors due to teams having too many of a specific group will show up in an `errors.txt` file in the results folder. All the results will be in a folder corresponding to the date and time that they program was run, so you can see how you are doing over time.
-
