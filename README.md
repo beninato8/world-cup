@@ -27,3 +27,5 @@ To add the results of a game, you need to update the [team-scores.txt](team-scor
 
 To run the program, just double-click the [run me app](run-me.app). Alternatively, if that doesn't work, download python3 [here](https://www.python.org/downloads/), open the [open-terminal app](open-terminal.app), and run `python3 scoring.py`. Last resort just ask Will.
 
+Results will show up in the [results](results) folder. Any errors due to teams having too many of a specific group will show up in an `errors.txt` file in the results folder. All the results will be in a folder corresponding to the date and time that they program was run, so you can see how you are doing over time.
+
