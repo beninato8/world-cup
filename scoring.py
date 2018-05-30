@@ -3,38 +3,48 @@ import os
 from datetime import datetime as dt
 from team_check import team_count_is_good as check
 
+#countries, iso 3166-2, and reversed (k,v)
 country_to_code = {'Egypt': 'EG', 'Morocco': 'MA', 'Nigeria': 'NG', 'Senegal': 'SN', 'Tunisia': 'TN', 'Australia': 'AU', 'Iran': 'IR', 'Japan': 'JP', 'South Korea': 'KR', 'Saudi Arabia': 'SA', 'Belgium': 'BE', 'Croatia': 'HR', 'Denmark': 'DK', 'England': 'GB', 'France': 'FR', 'Germany': 'DE', 'Iceland': 'IS', 'Poland': 'PL', 'Portugal': 'PT', 'Russia': 'RU', 'Serbia': 'RS', 'Spain': 'ES', 'Sweden': 'SE', 'Switzerland': 'CH', 'Costa Rica': 'CR', 'Mexico': 'MX', 'Panama': 'PA', 'Argentina': 'AR', 'Brazil': 'BR', 'Columbia': 'CO', 'Peru': 'PE', 'Uruguay': 'UY'}
 code_to_country = {v:k for k,v in country_to_code.items()}
 
+#seeds dict
 with open('teams/team-seeds.txt') as f:
     seeds = {x.rstrip():i+1 for i, x in enumerate(f)}
 
+#true if a is higher seed than b
 def is_higher_seed(a, b):
     s = len(seeds)
     return ((s-seeds[a])-(s-seeds[b])) > 0
 
+#parsing the string for getting the teams and scores for a game
 def get_scores(w, l):
     w_name = code_to_country[w[:2]]
     w_score = int(w[2:])
     l_name = code_to_country[l[:2]]
     l_score = int(l[2:])
     return w_name, w_score, l_name, l_score
+
+#probably some easy way using * opperator but literally repeats string s n times
 def repeat(s, n):
     return ''.join([s for i in range(n)])
 
+#pretty dictionary, makes sure that all entries are evenly spaced to display kv pairs
 def pdict(d, div='    '):
     m = max([len(x) for x in d])
     return '\n'.join([str(x) + repeat(' ', m - len(str(x))) + str(div) + str(d[x]) for x in d])
 
 # print('\n'.join([country_to_code[x] + '    ' + x for x in country_to_code]))
 
+#categories to look for
 team_goals_scored = {x: 0 for x in country_to_code.keys()}
 team_goals_allowed = {x: 0 for x in country_to_code.keys()}
 team_win_loss_points = {x: 0 for x in country_to_code.keys()}
 # print(team_goals_scored)
 
+#giving teams points for winngin
 with open('team-scores.txt') as scores:
     for line in scores:
+        #ignore empty and commented lines
         if len(line) > 0 and line[0] != '#' and line != '\n':
             line = line.replace('\n', '')
             winner, loser = line.split(' ')
@@ -60,6 +70,7 @@ with open('team-scores.txt') as scores:
     # print(pdict(team_goals_scored, '    '))
     # print(pdict(team_goals_allowed, '    '))
 
+#getting player teams
 d = './players/'
 t = './teams/Group '
 
@@ -85,13 +96,14 @@ for player in os.listdir(d):
         player_teams[name] = teams
 
 # print(pdict(player_teams))
-
+#calculating scores for each player given what teams they picked
 player_scores = {x: 0 for x in player_teams.keys()}
 
 for player in player_teams:
     for team in player_teams[player]:
         player_scores[player] = player_scores[player] + team_win_loss_points[team]
 
+#what happens in a tie breaker, goals scored - goals allowed decides winner
 tie = False
 print(pdict(player_scores))
 tie_checker = sorted((player_scores[x], [x]) for x in player_scores)[::-1]
@@ -112,6 +124,7 @@ now = str(dt.now()).split('.')[0].replace(':', ';')
 os.system('mkdir ./results/"' + now + '"')
 
 errors = check()
+#writing to folder
 with open('./results/'+now+'/errors.txt', 'w+') as f:
     if errors != "":
         f.write(errors)

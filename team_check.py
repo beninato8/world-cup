@@ -1,6 +1,7 @@
 import os
 import constants as m
 
+#how many times both list a and b have the same element
 def times_in_a_list(a, b):
     c = 0
     for x in a:
@@ -9,10 +10,16 @@ def times_in_a_list(a, b):
                 c += 1
     return c
 
+#main method
 def team_count_is_good():
+    #players directory and group affiliation directory
     d = './players/'
     t = './teams/Group '
+
+    #what will be returned at the end of the method. duh
     returnstr = ''
+
+    #creating lists from the teams in each group file
     with open(t+'A.txt', 'r') as f:
         groupa = [''.join(y for y in x if y != '\n') for x in f]
     with open(t+'B.txt', 'r') as f:
@@ -22,6 +29,7 @@ def team_count_is_good():
     with open(t+'D.txt', 'r') as f:
         groupd = [''.join(y for y in x if y != '\n') for x in f]
 
+    #creating dict where k = players and v = list of each team they picked
     playerteams = {}
     for player in os.listdir(d):
         if len(player) > 3 and player[-3:] == 'txt':
@@ -41,12 +49,14 @@ def team_count_is_good():
     numD = 0
     allgood = True
     error_people = set([''])
+    #basically just counting how many times each players teams show up in the individual groups
     for key in playerteams:
         numA = times_in_a_list(playerteams[key], groupa)
         numB = times_in_a_list(playerteams[key], groupb)
         numC = times_in_a_list(playerteams[key], groupc)
         numD = times_in_a_list(playerteams[key], groupd)
         current_player_allgood = True
+        # making sure you don't have too many players from each group
         if numA > m.A:
             returnstr += 'Too many teams from Group A for %s' % key.title() + "\n"
             current_player_allgood = False
@@ -63,8 +73,9 @@ def team_count_is_good():
             error_people.add(key.title())
             allgood = False
 
+    #"error" message, but nothing actually happens. more of a warning than an error tbh
     if not allgood:
-        returnstr += 'The people below have too many teams. Please fix it and try again.' + "\n"
+        returnstr += 'Just letting you know that the people below have too many teams.' + "\n"
         returnstr += ''.join('*' for i in range(len(max(error_people)))) + "\n"
         returnstr += '\n'.join([x for x in error_people])[1:] + "\n"
         returnstr += ''.join('*' for i in range(len(max(error_people)))) + "\n"
@@ -75,5 +86,7 @@ def team_count_is_good():
         # return returnstr
         return ""
     # return True
+
+#debugging and stuff
 if __name__ == "__main__":
     team_count_is_good()
