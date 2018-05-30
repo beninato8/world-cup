@@ -1,7 +1,5 @@
-Germany
-Brazil
-Belgium
 Portugal
+Germany
+Belgium
 Argentina
-Switzerland
-France
+Brazil
