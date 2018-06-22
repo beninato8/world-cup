@@ -4,7 +4,7 @@ from datetime import datetime as dt
 from team_check import team_count_is_good as check
 
 #countries, iso 3166-2, and reversed (k,v)
-country_to_code = {'Egypt': 'EG', 'Morocco': 'MA', 'Nigeria': 'NG', 'Senegal': 'SN', 'Tunisia': 'TN', 'Australia': 'AU', 'Iran': 'IR', 'Japan': 'JP', 'South Korea': 'KR', 'Saudi Arabia': 'SA', 'Belgium': 'BE', 'Croatia': 'HR', 'Denmark': 'DK', 'England': 'GB', 'France': 'FR', 'Germany': 'DE', 'Iceland': 'IS', 'Poland': 'PL', 'Portugal': 'PT', 'Russia': 'RU', 'Serbia': 'RS', 'Spain': 'ES', 'Sweden': 'SE', 'Switzerland': 'CH', 'Costa Rica': 'CR', 'Mexico': 'MX', 'Panama': 'PA', 'Argentina': 'AR', 'Brazil': 'BR', 'Columbia': 'CO', 'Peru': 'PE', 'Uruguay': 'UY'}
+country_to_code = {'Egypt': 'EG', 'Morocco': 'MA', 'Nigeria': 'NG', 'Senegal': 'SN', 'Tunisia': 'TN', 'Australia': 'AU', 'Iran': 'IR', 'Japan': 'JP', 'South Korea': 'KR', 'Saudi Arabia': 'SA', 'Belgium': 'BE', 'Croatia': 'HR', 'Denmark': 'DK', 'England': 'GB', 'France': 'FR', 'Germany': 'DE', 'Iceland': 'IS', 'Poland': 'PL', 'Portugal': 'PT', 'Russia': 'RU', 'Serbia': 'RS', 'Spain': 'ES', 'Sweden': 'SE', 'Switzerland': 'CH', 'Costa Rica': 'CR', 'Mexico': 'MX', 'Panama': 'PA', 'Argentina': 'AR', 'Brazil': 'BR', 'Colombia': 'CO', 'Peru': 'PE', 'Uruguay': 'UY'}
 code_to_country = {v:k for k,v in country_to_code.items()}
 
 #seeds dict

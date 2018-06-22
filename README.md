@@ -20,10 +20,10 @@
 
 ### Players
 
-The teams that players pick are stored in text files in the [players](players) folder. Each file corresponds to a single player. For example, if my name was Bob, and I picked Mexico, Columbia, and South Korea, my file (`bob.txt`) would look like this:
+The teams that players pick are stored in text files in the [players](players) folder. Each file corresponds to a single player. For example, if my name was Bob, and I picked Mexico, Colombia, and South Korea, my file (`bob.txt`) would look like this:
 ```
 Mexico
-Columbia
+Colombia
 South Korea
 ```
 Make sure that the teams are spelled correctly, so that the names of the countries match the names of the countries in [country names file](teams/abbreviations-english.txt) or in the commented out section of [team-scores.txt](team-scores.txt).
