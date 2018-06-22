@@ -2,6 +2,7 @@ import constants as c
 import os
 from datetime import datetime as dt
 from team_check import team_count_is_good as check
+import time
 
 #countries, iso 3166-2, and reversed (k,v)
 country_to_code = {'Egypt': 'EG', 'Morocco': 'MA', 'Nigeria': 'NG', 'Senegal': 'SN', 'Tunisia': 'TN', 'Australia': 'AU', 'Iran': 'IR', 'Japan': 'JP', 'South Korea': 'KR', 'Saudi Arabia': 'SA', 'Belgium': 'BE', 'Croatia': 'HR', 'Denmark': 'DK', 'England': 'GB', 'France': 'FR', 'Germany': 'DE', 'Iceland': 'IS', 'Poland': 'PL', 'Portugal': 'PT', 'Russia': 'RU', 'Serbia': 'RS', 'Spain': 'ES', 'Sweden': 'SE', 'Switzerland': 'CH', 'Costa Rica': 'CR', 'Mexico': 'MX', 'Panama': 'PA', 'Argentina': 'AR', 'Brazil': 'BR', 'Colombia': 'CO', 'Peru': 'PE', 'Uruguay': 'UY'}
@@ -105,7 +106,7 @@ for player in player_teams:
 
 #what happens in a tie breaker, goals scored - goals allowed decides winner
 tie = False
-print(pdict(player_scores))
+# print(pdict(player_scores))
 tie_checker = sorted((player_scores[x], [x]) for x in player_scores)[::-1]
 if len(tie_checker) > 1:
     max_score = tie_checker[0][0]
@@ -118,7 +119,7 @@ for player in tie_breaker:
     for team in player_teams[player]:
         tie_breaker[player] = tie_breaker[player] + (team_goals_scored[team] - team_goals_allowed[team])
 
-print(pdict(tie_breaker))
+# print(pdict(tie_breaker))
 now = str(dt.now()).split('.')[0].replace(':', ';')
 # exit()
 os.system('mkdir ./results/"' + now + '"')
@@ -135,9 +136,19 @@ with open('./results/'+now+'/goals_allowed.txt', 'w+') as f:
 with open('./results/'+now+'/team_points.txt', 'w+') as f:
     f.write(pdict(team_win_loss_points))
 with open('./results/'+now+'/players_scores.txt', 'w+') as f:
-    f.write(pdict(player_scores))
+    time.sleep(2)
+    # print((player_scores))
+    a = [(player_scores[k], k) for k in player_scores.keys()]
+    b = sorted(a)[::-1]
+    # print(b)
+    c = {x[1]:x[0] for x in b}
+    print(pdict(c))
+    f.write(pdict(c))
     if tie:
         f.write('\nTie between ' +  ' and '.join(best_players) + ' (winner is the largest number below, which are the differences between the amount of goals scored and let in by the teams each player picked)\n')
         f.write(pdict(tie_breaker))
 # with open('./results/'+now+'/winner.txt', 'w+') as f:
 #     f.write(pdict(player_scores))
+
+
+
