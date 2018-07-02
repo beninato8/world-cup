@@ -19,7 +19,6 @@ def is_higher_seed(a, b):
 
 #parsing the string for getting the teams and scores for a game
 def get_scores(w, l):
-    w = w.replace('*', '')
     w_name = code_to_country[w[:2]]
     w_score = int(w[2:])
     l_name = code_to_country[l[:2]]
@@ -58,15 +57,11 @@ with open('team-scores.txt') as scores:
             team_goals_allowed[w_name] = team_goals_allowed[w_name] + l_score
             team_goals_allowed[l_name] = team_goals_allowed[l_name] + w_score
 
-            if w_score == l_score and '*' not in winner:
+            if w_score == l_score:
                 team_win_loss_points[w_name] = team_win_loss_points[w_name] + c.POINTS_FOR_TIE
                 team_win_loss_points[l_name] = team_win_loss_points[l_name] + c.POINTS_FOR_TIE
                 if is_higher_seed(l_name, w_name):
                     team_win_loss_points[w_name] = team_win_loss_points[w_name] + c.UPSET_TIE
-            elif w_score == l_score and '*' in winner:
-                team_win_loss_points[w_name] = team_win_loss_points[w_name] + c.POINTS_FOR_WIN
-                if is_higher_seed(l_name, w_name):
-                    team_win_loss_points[w_name] = team_win_loss_points[w_name] + c.UPSET_WIN
             else:
                 team_win_loss_points[w_name] = team_win_loss_points[w_name] + c.POINTS_FOR_WIN
                 if is_higher_seed(l_name, w_name):
